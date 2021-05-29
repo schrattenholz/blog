@@ -21,6 +21,9 @@ class BlogExtension extends DataExtension{
 	private static $belongs_many_many=array(
 		'BlogLists'=>BlogList::class
 	);
+	private static $owns=[
+		"TeaserImage"
+	];
 	public function updateCMSFields(FieldList $fields) {
 
 			$txt='Wird im Blog angezeigt';
