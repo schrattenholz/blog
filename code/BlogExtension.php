@@ -10,6 +10,8 @@ use SilverStripe\Forms\TreeMultiselectField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\Image;
 use DateTime;
+use SilverStripe\Core\Injector\Injector;
+use Psr\Log\LoggerInterface;
 class BlogExtension extends DataExtension{
 	private static $db=array(
 		'Date'=>'Date',
@@ -68,11 +70,24 @@ class BlogExtension extends DataExtension{
 		$summary=_t("Day.".$start->format("D"),$start->format("D")).", ".$datum;
 		return $summary;
 	}
-	public function CoverImage(){
+	/*public function CoverImage(){
 		if($this->owner->TeaserImage()){
 			return $this->owner->TeaserImage();
 		}else{
 			return OrderConfig::get()->First()->ProductImage();
 		}
+	}*/
+	public function BasicExtension_CoverImage($coverImage){
+		
+		if($this->owner->TeaserImageID){
+			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
+			$coverImage->CoverImage= $this->owner->TeaserImage();
+		}else if ($coverImage){
+			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage ImageID='.$coverImage->ID);
+		}else{
+			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage Dummy=');
+			$coverImage->CoverImage= OrderConfig::get()->First()->ProductImage();
+		}
+		return $coverImage;
 	}
 }

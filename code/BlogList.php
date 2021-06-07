@@ -68,13 +68,7 @@ class BlogList extends Page {
 	private static $owns=[
 		"Image"
 		];
-	public function CoverImage(){
-		if($this->Image()){
-			return $this->Image();
-		}else{
-			return OrderConfig::get()->First()->ProductImage();
-		}
-	}
+
 	public function CollectedEntries(){
 		
 		
