@@ -12,7 +12,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-
+use SilverStripe\CMS\Model\SiteTree;
 class BlogList extends Page {
 	private static $table_name='BlogList';
 	private static $db=array(
@@ -27,12 +27,12 @@ class BlogList extends Page {
 		"Image"=>Image::class
 		];
 	private static $many_many=array(
-		'BlogEntries'=>Page::class
+		'BlogEntries'=>SiteTree::class
 	);
 	function getCMSFields() {
 		
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab('Root.BlogKonfig', new TreeMultiselectField('BlogEntries','Zusätzlich angezeigte Beiträge aus anderen Kategorien',Page::class));
+		$fields->addFieldToTab('Root.BlogKonfig', new TreeMultiselectField('BlogEntries','Zusätzlich angezeigte Beiträge aus anderen Kategorien',SiteTree::class));
 		$fields->addFieldToTab('Root.BlogKonfig', new CheckboxField('ShowWholeContent','Kompletten Text des Inhaltsfeld anstatt Kurztext anzeigen'));
 		$fields->addFieldToTab('Root.BlogKonfig', new UploadField('Image','Bild für im Feed'));
 		$fields->addFieldToTab('Root.BlogKonfig', new CheckboxField('ShowNoContent','Keinen Fließtext anzeigen'));

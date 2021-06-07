@@ -70,24 +70,24 @@ class BlogExtension extends DataExtension{
 		$summary=_t("Day.".$start->format("D"),$start->format("D")).", ".$datum;
 		return $summary;
 	}
-	/*public function CoverImage(){
+	/*public function DefaultImage(){
 		if($this->owner->TeaserImage()){
 			return $this->owner->TeaserImage();
 		}else{
 			return OrderConfig::get()->First()->ProductImage();
 		}
 	}*/
-	public function BasicExtension_CoverImage($coverImage){
-		
+	public function BasicExtension_DefaultImage($defaultImage){
+		Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
 		if($this->owner->TeaserImageID){
-			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
-			$coverImage->CoverImage= $this->owner->TeaserImage();
-		}else if ($coverImage){
-			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage ImageID='.$coverImage->ID);
+			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
+			$defaultImage->DefaultImage= $this->owner->TeaserImage();
+		}else if ($defaultImage){
+		//	Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage ImageID='.$defaultImage->ID);
 		}else{
-			Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_CoverImage Dummy=');
-			$coverImage->CoverImage= OrderConfig::get()->First()->ProductImage();
+			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage Dummy=');
+			$defaultImage->DefaultImage= OrderConfig::get()->First()->ProductImage();
 		}
-		return $coverImage;
+		return $defaultImage;
 	}
 }
