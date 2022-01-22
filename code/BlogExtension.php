@@ -10,6 +10,7 @@ use SilverStripe\Forms\TreeMultiselectField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Assets\Image;
 use DateTime;
+use Schrattenholz\Order\OrderConfig;
 use SilverStripe\Core\Injector\Injector;
 use Psr\Log\LoggerInterface;
 class BlogExtension extends DataExtension{
@@ -78,11 +79,12 @@ class BlogExtension extends DataExtension{
 		}
 	}*/
 	public function BasicExtension_DefaultImage($defaultImage){
-		Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
+		Injector::inst()->get(LoggerInterface::class)->error($this->owner->MenuTitle.'   BlogExtension.php BasicExtension_MainImage MainImage()->ID='.$this->owner->MainImage()->Filename);
 		if($this->owner->TeaserImageID){
 			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
 			$defaultImage->DefaultImage= $this->owner->TeaserImage();
-		}else if ($defaultImage){
+		}else if ($this->owner->MainImageID){
+			$defaultImage->DefaultImage= $this->owner->MainImage();
 		//	Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage ImageID='.$defaultImage->ID);
 		}else{
 			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage Dummy=');
