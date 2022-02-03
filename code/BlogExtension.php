@@ -16,6 +16,7 @@ use Psr\Log\LoggerInterface;
 class BlogExtension extends DataExtension{
 	private static $db=array(
 		'Date'=>'Date',
+		'TeaserTitle'=>'Varchar(120)',
 		'TeaserText'=>'Text'
 	);
 	private static $has_one=array(
@@ -33,7 +34,8 @@ class BlogExtension extends DataExtension{
 			$date=new DateField('Date','Erscheinungsdatum');
 			$fields->addFieldToTab('Root.Blog',$date);
 			//$date->setConfig('showcalendar', 1);
-			$fields->addFieldToTab('Root.Blog',new TextField('TeaserText',"Text für Teaser"));
+			$fields->addFieldToTab('Root.Blog',new TextField('TeaserTitle',"Optionaler Titel für Teaser"));
+			$fields->addFieldToTab('Root.Blog',new TextField('TeaserText',"Optionaler Text für Teaser"));
 			$fields->addFieldToTab('Root.Blog', new TreeMultiselectField('BlogLists','Wird zusätzlich in folgenden Listen angezeigt',BlogList::class));
 			$fields->addFieldToTab('Root.Blog', new UploadField('TeaserImage','Bild für die Anzeige in der Blogansicht'));
 
