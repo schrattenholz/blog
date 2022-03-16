@@ -37,7 +37,7 @@ class BlogExtension extends DataExtension{
 			$fields->addFieldToTab('Root.Blog',new TextField('TeaserTitle',"Optionaler Titel für Teaser"));
 			$fields->addFieldToTab('Root.Blog',new TextField('TeaserText',"Optionaler Text für Teaser"));
 			$fields->addFieldToTab('Root.Blog', new TreeMultiselectField('BlogLists','Wird zusätzlich in folgenden Listen angezeigt',BlogList::class));
-			$fields->addFieldToTab('Root.Blog', new UploadField('TeaserImage','Bild für die Anzeige in der Blogansicht'));
+			$fields->addFieldToTab('Root.Bilder', new UploadField('TeaserImage','Bild für die Anzeige in der Blogansicht'));
 
 	
     }
