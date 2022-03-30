@@ -81,7 +81,7 @@ class BlogExtension extends DataExtension{
 		}
 	}*/
 	public function BasicExtension_DefaultImage($defaultImage){
-		Injector::inst()->get(LoggerInterface::class)->error($this->owner->MenuTitle.'   BlogExtension.php BasicExtension_MainImage MainImage()->ID='.$this->owner->MainImage()->Filename);
+		//Injector::inst()->get(LoggerInterface::class)->error($this->owner->MenuTitle.'   BlogExtension.php BasicExtension_MainImage MainImage()->ID='.$this->owner->MainImage()->Filename);
 		if($this->owner->TeaserImageID){
 			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage TeaserImage()->ID='.$this->owner->TeaserImage()->Filename);
 			$defaultImage->DefaultImage= $this->owner->TeaserImage();
