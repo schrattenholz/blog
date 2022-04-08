@@ -88,7 +88,7 @@ class BlogExtension extends DataExtension{
 		}else if ($this->owner->MainImageID){
 			$defaultImage->DefaultImage= $this->owner->MainImage();
 		//	Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage ImageID='.$defaultImage->ID);
-		}else if(OrderConfig::get()->First()->ProductImage()){
+		}else if(class_exists("Schrattenholz\Order\OrderConfig") && OrderConfig::get()->First()->ProductImage()){
 			//Injector::inst()->get(LoggerInterface::class)->error('BlogExtension.php BasicExtension_DefaultImage Dummy=');
 			$defaultImage->DefaultImage= OrderConfig::get()->First()->ProductImage();
 		}
