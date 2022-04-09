@@ -57,6 +57,7 @@ class BlogExtension extends DataExtension{
 		//$this->owner->onBeforeWrite();
 	}
 	public function getCuttedText(){
+		if(!$this->owner->TeaserText){
 		$string = strip_tags($this->owner->Content);
 		if (strlen($string) > 100) {
 			// truncate string
@@ -65,6 +66,10 @@ class BlogExtension extends DataExtension{
 			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...'; 
 		}
 		return $string;
+		}else{
+			return $this->owner->TeaserText;
+			
+		}
 	}
 	function DateSummary(){
 		$summary="";
