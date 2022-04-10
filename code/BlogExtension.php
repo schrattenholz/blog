@@ -56,16 +56,23 @@ class BlogExtension extends DataExtension{
 			}
 		//$this->owner->onBeforeWrite();
 	}
+	public function getBlogTitle(){
+		if($this->owner->TeaserTitle){
+			return $this->owner->TeaserTitle;
+		}else{
+			return $this->owner->MenuTitle;			
+		}		
+	}
 	public function getCuttedText(){
 		if(!$this->owner->TeaserText){
-		$string = strip_tags($this->owner->Content);
-		if (strlen($string) > 100) {
-			// truncate string
-			$stringCut = substr($string, 0, 100);
-			// make sure it ends in a word so assassinate doesn't become ass...
-			$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...'; 
-		}
-		return $string;
+			$string = strip_tags($this->owner->Content);
+			if (strlen($string) > 100) {
+				// truncate string
+				$stringCut = substr($string, 0, 100);
+				// make sure it ends in a word so assassinate doesn't become ass...
+				$string = substr($stringCut, 0, strrpos($stringCut, ' ')).'...'; 
+			}
+			return $string;
 		}else{
 			return $this->owner->TeaserText;
 			
