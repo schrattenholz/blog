@@ -59,6 +59,7 @@
 				
 				<!--<a class="btn-tag mr-2 mb-2" href="#">Shopping</a><a class="btn-tag mr-2 mb-2" href="#">Fashion</a>-->
               </div>
+			   <% if not $Top.HideLabel %>
               <div class="card-footer d-flex align-items-center font-size-xs">
 				<!--<a class="blog-entry-meta-link" href="#">
 					<div class="blog-entry-author-ava">
@@ -66,7 +67,7 @@
 					</div>Cynthia Gomez
 				</a>
 				-->
-                <% not $Top.HideLabel %>
+               
 				<div class="ml-auto text-nowrap">
 					<a class="blog-entry-meta-link text-nowrap" href="$Link">$DateSummary</a>
 					<!--
@@ -77,8 +78,9 @@
 					</a>
 					-->
 				</div>
-				<% end_if %>
+				
               </div>
+			  <% end_if %>
             </div>
           </article>
 		  
