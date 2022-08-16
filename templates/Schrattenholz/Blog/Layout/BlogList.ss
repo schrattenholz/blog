@@ -66,7 +66,8 @@
 					</div>Cynthia Gomez
 				</a>
 				-->
-                <div class="ml-auto text-nowrap">
+                <% not $HideLabel %>
+				<div class="ml-auto text-nowrap">
 					<a class="blog-entry-meta-link text-nowrap" href="$Link">$DateSummary</a>
 					<!--
 					<span class="blog-entry-meta-divider mx-2"></span>
@@ -76,6 +77,7 @@
 					</a>
 					-->
 				</div>
+				<% end_if %>
               </div>
             </div>
           </article>
