@@ -66,7 +66,7 @@
 					</div>Cynthia Gomez
 				</a>
 				-->
-                <% not $HideLabel %>
+                <% not $Top.HideLabel %>
 				<div class="ml-auto text-nowrap">
 					<a class="blog-entry-meta-link text-nowrap" href="$Link">$DateSummary</a>
 					<!--
