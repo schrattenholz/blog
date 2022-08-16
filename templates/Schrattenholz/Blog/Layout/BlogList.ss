@@ -55,7 +55,7 @@
 					<% else %>
 					<% end_if %>
 				<% end_if %>
-				</p>
+			
 				
 				<!--<a class="btn-tag mr-2 mb-2" href="#">Shopping</a><a class="btn-tag mr-2 mb-2" href="#">Fashion</a>-->
               </div>
