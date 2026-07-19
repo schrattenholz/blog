@@ -1,0 +1,8 @@
+---
+Name: blog-teasersection-integration
+Only:
+  classexists: 'Schrattenholz\ContentObject\CO_TeaserSection'
+---
+Schrattenholz\ContentObject\CO_TeaserSection:
+  extensions:
+    - Schrattenholz\Blog\BlogContentObjectTeaserSection_Extension

@@ -48,7 +48,7 @@ class BlogExtension extends DataExtension{
     }
 }
 	public function AllBlogLists(){
-		return DataList::create('Page')->where('ID IS NOT '.$this->owner->ID." AND ClassName=BlogList");
+		return DataList::create('Page')->where('ID IS NOT '.$this->owner->ID." AND ClassName='BlogList'");
 	}
 	public function onBeforeWrite(){
 			if($this->owner->Date==""){
