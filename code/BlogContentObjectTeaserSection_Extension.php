@@ -23,8 +23,7 @@ class BlogContentObjectTeaserSection_Extension extends Extension{
 			$page->TeaserImageID=$this->owner->MainImageID;
 			$page->write();
 			$page->doPublish();
-			
+
 		}
-		parent::onAfterWrite();
 	}
 }
