@@ -1,7 +1,7 @@
 <?php
 namespace Schrattenholz\Blog;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextField;
@@ -13,7 +13,7 @@ use DateTime;
 use Schrattenholz\Order\OrderConfig;
 use SilverStripe\Core\Injector\Injector;
 use Psr\Log\LoggerInterface;
-class BlogExtension extends DataExtension{
+class BlogExtension extends Extension{
 	private static $db=array(
 		'Date'=>'Date',
 		'TeaserTitle'=>'Varchar(120)',

@@ -1,7 +1,7 @@
 <?php
 namespace Schrattenholz\Blog;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextField;
@@ -14,7 +14,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use Schrattenholz\Order\OrderConfig;
 use SilverStripe\Core\Injector\Injector;
 use Psr\Log\LoggerInterface;
-class BlogContentObjectTeaserSection_Extension extends DataExtension{
+class BlogContentObjectTeaserSection_Extension extends Extension{
 	public function onAfterWrite(){
 		Injector::inst()->get(LoggerInterface::class)->error('BlogContentObjectTeaserSection_Extension MainImageID='.$this->owner->Category()->ID);
 		if(!$this->owner->Page()->TeaserImageID && $this->owner->MainImageID){

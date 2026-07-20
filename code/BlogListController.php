@@ -4,9 +4,9 @@ namespace Schrattenholz\Blog;
 
 use Page;
 use PageController;
-use SilverStripe\ORM\ArrayList;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\DataList;
-use SilverStripe\ORM\PaginatedList;
+use SilverStripe\Model\List\PaginatedList;
 
 class BlogListController extends PageController{
 	private static $allowed_actions = ['SortedBlogList'];
