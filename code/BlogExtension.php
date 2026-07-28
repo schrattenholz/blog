@@ -65,7 +65,7 @@ class BlogExtension extends Extension{
 	}
 	public function getCuttedText(){
 		if(!$this->owner->TeaserText){
-			$string = strip_tags($this->owner->Content);
+			$string = strip_tags($this->owner->Content ?? '');
 			if (strlen($string) > 100) {
 				// truncate string
 				$stringCut = substr($string, 0, 100);
@@ -80,7 +80,7 @@ class BlogExtension extends Extension{
 	}
 	function DateSummary(){
 		$summary="";
-		$start=new DateTime( $this->owner->Date);
+		$start=new DateTime( $this->owner->Date ?? 'now');
 		$datum=$start->format('d').".".$start->format('m').".".$start->format('Y');
 		$summary=_t("Day.".$start->format("D"),$start->format("D")).", ".$datum;
 		return $summary;
